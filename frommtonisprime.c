@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <math.h>
+bool isPrime(int n)
+{
+    if(n<=1){return false;}
+    if(n==2||n==3){return true;}
+    if(n%2==0||n%3==0){return false;}
+    for(int i=5;i*i<=n;i+=6)
+    {
+        if(n%i==0||n%(i+2)==0){return false;}
+    }
+    return true;
+}
+int main()
+{
+    int m,n;
+    scanf("%d %d",&m,&n);
+    int i,num=0,sum=0;
+    for(i=m;i<=n;i++)
+    {
+        if(isPrime(i))
+        {
+            num++,sum+=i;
+        }
+    }
+    printf("%d %d",num,sum);
+    return 0;
+}
